@@ -1,0 +1,1 @@
+Forward é sempre topdown, backward é ""funcional""

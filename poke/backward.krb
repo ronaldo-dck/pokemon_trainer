@@ -1,0 +1,4 @@
+unrecomendations
+    use not_recomended($element2, $element1)
+    when
+        elements.super_effective($element1, $element2)

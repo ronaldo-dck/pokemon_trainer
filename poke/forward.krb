@@ -1,0 +1,5 @@
+unrecomendations
+    foreach
+        elements.super_effective($element1, $element2)
+    assert
+        elements.not_recomended($element2, $element1)
