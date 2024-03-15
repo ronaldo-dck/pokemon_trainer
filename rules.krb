@@ -1,0 +1,17 @@
+# recomendacoes.krb
+
+# Declaração das regras
+rule recomendar_filme:
+    (idade >= 18)
+    ->
+    print("Você pode assistir a filmes para adultos.")
+    
+rule recomendar_filme:
+    (idade >= 13)
+    ->
+    print("Você pode assistir a filmes para adolescentes.")
+    
+rule recomendar_filme:
+    (idade >= 0)
+    ->
+    print("Você pode assistir a filmes para crianças.")
