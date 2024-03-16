@@ -12,13 +12,6 @@ check_weakness_x2
     use most_effective($attacker1, $attacked1, $attacked2)
     when
         check $attacked1 != $attacked2
-        check $attacked2 != 'null'
         python print('diferente x2')
 
-        pk_types.super_effective($attacker1, $attacked1)
-
-check_weakness_null
-    use most_effective($attacker1, $attacked1, null)
-    when
-        python print('um tipo')
         pk_types.super_effective($attacker1, $attacked1)
