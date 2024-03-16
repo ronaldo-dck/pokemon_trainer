@@ -1,4 +1,4 @@
-# elements.kfb
+# pk_types.kfb
 
 super_effective(fire, grass)
 super_effective(fire, ice)

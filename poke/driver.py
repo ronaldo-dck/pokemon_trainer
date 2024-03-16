@@ -6,22 +6,13 @@ from pyke import goal
 
 engine = knowledge_engine.engine(__file__)
 
-fc_goal = goal.compile('elements.not_recomended($element1, $element2)')
-
-def is_effective_fc(element1='fire'):
-
-    engine.reset()
-
-    engine.activate('forward')
-    with fc_goal.prove(engine, element1=element1) as gen:
-        for vars, plan in gen:
-            print("%s is not recomended against %s" % (element1, vars['element2']))
-
-def is_effective_bc(element1='fire'):
+def best_against(element1='fire', element2='null'):
 
     engine.reset()
 
     engine.activate('backward')
-    with engine.prove_goal('backward.not_recomended($element1, $element2)', element1=element1) as gen:
+    with engine.prove_goal('backward.most_effective($attacker1, $attacker2, $attacked1, $attacked2)', attacked1=element1, attacked2=element2) as gen:
         for vars, plan in gen:
-            print("%s is not recomended against %s" % (element1, vars['element2']))
+            print("%s and %s is the best against %s and %s" % (vars['attacker1'], vars['attacker2'], element1, element2))
+
+    print()
