@@ -1,34 +1,24 @@
-check_super_effective
-    use most_effective($attacker1, $attacker2, $attacked1, $attacked2)
+check_weakness_x4
+    use most_effective($attacker1, $attacked1, $attacked2)
     when
         check $attacked1 != $attacked2
         check $attacked2 != 'null'
-        python print('diferente')
+        python print('diferente x4')
+
         pk_types.super_effective($attacker1, $attacked1)
+        pk_types.super_effective($attacker1, $attacked2)
 
-        pk_types.super_effective($attacker2, $attacked2)
-
-        check $attacker1 != $attacker2
-
-
-# ambas as regras abaixo são análogas, basta decidir qual a mais coerente/fácil de usar
-
-check_super_effective_equal
-    use most_effective($attacker1, $attacker1, $attacked1, $attacked1)
+check_weakness_x2
+    use most_effective($attacker1, $attacked1, $attacked2)
     when
-        python print('engual')
-        python i = 1                                                   # numero de resultados permitidos
+        check $attacked1 != $attacked2
+        check $attacked2 != 'null'
+        python print('diferente x2')
+
         pk_types.super_effective($attacker1, $attacked1)
-        check i != 0
-        python i = i - 1
 
-
-check_super_effective_null
-    use most_effective($attacker1, $attacker2, $attacked1, null)
+check_weakness_null
+    use most_effective($attacker1, $attacked1, null)
     when
         python print('um tipo')
-        python i = 1                                                   # numero de resultados permitidos
         pk_types.super_effective($attacker1, $attacked1)
-        check i != 0
-        python i = i - 1
-        $attacker2 = 'null'
