@@ -9,7 +9,6 @@ engine = knowledge_engine.engine(__file__)
 def best_against(element1='fire', element2='null'):
 
     engine.reset()
-
     engine.activate('backward')
     try:
         vars, plan = engine.prove_1_goal('backward.most_effective($attacker1, $attacked1, $attacked2)', attacked1=element1, attacked2=element2)
@@ -18,3 +17,5 @@ def best_against(element1='fire', element2='null'):
         print('não foi possível')
 
     print()
+
+

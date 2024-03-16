@@ -1,5 +1,8 @@
 # pk_types.kfb
 
+attack_effective(psychic, defense)
+attack_effective(sp_attack, sp_defense)
+
 super_effective(fire, grass)
 super_effective(fire, ice)
 super_effective(fire, bug)
@@ -47,3 +50,9 @@ super_effective(steel, fairy)
 super_effective(fairy, fighting)
 super_effective(fairy, dragon)
 super_effective(fairy, dark)
+
+
+pokemon(bubassauro, grass, poison)
+pokemon(pikachu, electric, null)
+pokemon(odigi, grass, null)
+pokemon(munk, poison, null)
