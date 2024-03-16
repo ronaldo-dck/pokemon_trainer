@@ -1,5 +1,17 @@
 unrecomendations
     foreach
-        elements.super_effective($element1, $element2)
+        elements.super_effective($elementAtk, $elementDfs)
     assert
-        elements.not_recomended($element2, $element1)
+        elements.not_recomended($elementAtk, $elementDfs)
+
+defense_set
+    foreach
+        elements.attack_effective($atk, $dfs)
+    assert
+        elements.attack_recomended($atk, $dfs)
+
+get_name
+    foreach
+        elements.pokemon($nome, $tipo1, $tipo2)
+    assert
+        elements.result($nome, $tipo1, $tipo2)
