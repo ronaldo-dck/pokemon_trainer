@@ -1,17 +1,11 @@
-unrecomendations
+get_pokemon
     foreach
-        elements.super_effective($elementAtk, $elementDfs)
+        moves.poke_moves($pokemon_name, $move_name, $attack_strategy, $attack_type)
     assert
-        elements.not_recomended($elementAtk, $elementDfs)
+        moves.get_pokemon($pokemon_name, $move_name, $attack_strategy, $attack_type)
 
-defense_set
+get_type
     foreach
-        elements.attack_effective($atk, $dfs)
+        pk_types.type_id($type_id, $pokemon_name)
     assert
-        elements.attack_recomended($atk, $dfs)
-
-get_name
-    foreach
-        elements.pokemon($nome, $tipo1, $tipo2)
-    assert
-        elements.result($nome, $tipo1, $tipo2)
+        pk_types.type_name($type_id, $pokemon_name)

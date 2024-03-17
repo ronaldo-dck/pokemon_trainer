@@ -1,4 +1,27 @@
-unrecomendations
-    use not_recomended($element2, $element1)
+check_weakness_x4
+    use most_effective($attacker1, $attacked1, $attacked2)
     when
-        elements.super_effective($element1, $element2)
+        check $attacked1 != $attacked2
+        check $attacked2 != 'null'
+
+        pk_types.super_effective($attacker1, $attacked1)
+        pk_types.super_effective($attacker1, $attacked2)
+
+check_weakness_x2
+    use most_effective($attacker1, $attacked1, $attacked2)
+    when
+        check $attacked1 != $attacked2
+
+        pk_types.super_effective($attacker1, $attacked1)
+
+get_attack_strategy_special
+    use attack_strategy($attack_type, $ph_defense, $sp_defense)
+    when
+        check $ph_defense >= $sp_defense
+        $attack_type = 'special'
+
+get_attack_strategy_physical
+    use attack_strategy($attack_type, $ph_defense, $sp_defense)
+    when
+        check $ph_defense < $sp_defense
+        $attack_type = 'physical'

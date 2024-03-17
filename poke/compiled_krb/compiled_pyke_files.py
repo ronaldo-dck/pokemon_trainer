@@ -13,14 +13,14 @@ except NameError:
 
 def get_target_pkg():
     return target_pkg.target_pkg(__name__, __file__, pyke_version, loader, {
-         ('', '', 'elements.kfb'):
-           [1710530431.871527, 'elements.fbc'],
-         ('', '', 'questions.kqb'):
-           [1710530431.876858, 'questions.qbc'],
+         ('', '', 'moves.kfb'):
+           [1710705749.6390977, 'moves.fbc'],
+         ('', '', 'pk_types.kfb'):
+           [1710705749.6436281, 'pk_types.fbc'],
          ('', '', 'backward.krb'):
-           [1710530431.8873856, 'backward_bc.py'],
+           [1710705749.667051, 'backward_bc.py'],
          ('', '', 'forward.krb'):
-           [1710530431.8914695, 'forward_fc.py'],
+           [1710705749.673043, 'forward_fc.py'],
         },
         compiler_version)
 
