@@ -1,9 +1,9 @@
-import driver
+from poke import driver
 import pandas as pd
 
-pokemons = pd.read_csv('../pokemon.csv')
-pokemon_types = pd.read_csv('../pokemon_types.csv')
-pokemon_stats = pd.read_csv('../pokemon_stats.csv')
+pokemons = pd.read_csv('data/pokemon.csv')
+pokemon_types = pd.read_csv('data/pokemon_types.csv')
+pokemon_stats = pd.read_csv('data/pokemon_stats.csv')
 
 
 def get_pokemon(id=1):
