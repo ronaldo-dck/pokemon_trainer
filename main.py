@@ -1,5 +1,17 @@
 from poke import driver
 import pandas as pd
+from colorama import Fore, Style
+
+
+RED='\033[0;31m'
+HEADER='\033[95m'
+OKBLUE='\033[94m'
+OKGREEN='\033[92m'
+WARNING='\033[93m'
+FAIL='\033[91m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+ENDC='\033[0m'
 
 pokemons = pd.read_csv('data/pokemon.csv')
 pokemon_types = pd.read_csv('data/pokemon_types.csv')
@@ -47,24 +59,32 @@ def get_attack(defense, sp_defense):
     return driver.attack_strategy(defense, sp_defense)
 
 def get_recommended_pokemon(attack, type):
-    return driver.get_pokemon(attack, type)
 
+    recommended = driver.get_pokemon(attack, type)
+    recommended['pokemon_name'] = str(recommended['pokemon_name']).capitalize()
+    recommended['move_name'] = str(recommended['move_name']).capitalize()
+    return recommended
 
 
 if __name__ == '__main__':
-        name, id = get_pokemon((input('Entre como ID')))
+        name, id = get_pokemon((input('Number/id do pokemon: ')))
         types, stats = build_pokemon(id)
 
         type1 = translate_pokemon_type(types[0])
-        type2 = 'null'
-        if len(types) == 2:
-            type2 = translate_pokemon_type(types[1])
+        type2 = 'null' if len(types) == 1 else translate_pokemon_type(types[1])
 
         bestType = get_pokemon_type(type1, type2)
         bestAttack = get_attack(stats[0], stats[1])
 
-        print(f'oponente: {name} {type1} {type2} buscando por: {bestType} {bestAttack}')
         recommended = get_recommended_pokemon(bestAttack, bestType)
+        
+        name = str(name).capitalize()
+        type1 = str(type1).capitalize()
+        type2 = str(type2).capitalize() if type2 != 'null' else ''
+        bestType = str(bestType).capitalize()
+        bestAttack = str(bestAttack).capitalize()
 
-        print('player', recommended['pokemon_name'], recommended['move_name'])
-
+        print(f'Oponente: {Fore.BLUE}{name}{Style.RESET_ALL} {Fore.GREEN}{type1}{Style.RESET_ALL} {Fore.GREEN}{type2}{Style.RESET_ALL}')
+        print(f'Buscando por um golpe do tipo: {Fore.RED}{bestType}{Style.RESET_ALL} que cause dano {Fore.YELLOW}{bestAttack}{Style.RESET_ALL}')
+        print('Use o Pokemon', Fore.BLUE + recommended['pokemon_name'] + Style.RESET_ALL, 'aplicando o golpe', Fore.RED + recommended['move_name'] + Style.RESET_ALL)
+        
