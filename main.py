@@ -87,7 +87,7 @@ if __name__ == '__main__':
         bestType = str(bestType).capitalize()
         bestAttack = str(bestAttack).capitalize()
 
-        print(f'Oponente: {Fore.BLUE}{name}{Style.RESET_ALL} {Fore.GREEN}{type1}{Style.RESET_ALL} {Fore.GREEN}{type2}{Style.RESET_ALL}')
+        print(f'Oponente: {Fore.BLUE}{name}{Style.RESET_ALL}  Types[{Fore.GREEN}{type1}{Style.RESET_ALL} {Fore.GREEN}{type2}{Style.RESET_ALL}]')
         print(f'Buscando por um golpe do tipo: {Fore.RED}{bestType}{Style.RESET_ALL} que cause dano {Fore.YELLOW}{bestAttack}{Style.RESET_ALL}')
         print('Use o Pokemon', Fore.BLUE + recommended['pokemon_name'] + Style.RESET_ALL, 'aplicando o golpe', Fore.RED + recommended['move_name'] + Style.RESET_ALL)
         
