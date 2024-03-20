@@ -18,15 +18,18 @@ pokemon_types = pd.read_csv('data/pokemon_types.csv')
 pokemon_stats = pd.read_csv('data/pokemon_stats.csv')
 
 
-def get_pokemon(id=1):
-    value = f'{id}'
+def get_pokemon():
+    value = (input('Number/id do pokemon: ')).lower()
+
     if value.isnumeric():
         oponente = pokemons[pokemons['id'] == int(value)]
     else:
         oponente = pokemons[pokemons['identifier'] == value]
 
     if len(oponente) == 0:
-        oponente = get_pokemon()
+        print("id/name errado -> EXIT")   
+        exit(2)
+        
 
     return (oponente.iloc[0]['identifier'], oponente.iloc[0]['id'])
 
@@ -67,7 +70,7 @@ def get_recommended_pokemon(attack, type):
 
 
 if __name__ == '__main__':
-        name, id = get_pokemon((input('Number/id do pokemon: ')))
+        name, id = get_pokemon()
         types, stats = build_pokemon(id)
 
         type1 = translate_pokemon_type(types[0])
